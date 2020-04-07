@@ -4,6 +4,7 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="OrangeHRM.testcases.LoginScenarios"/>
+      <class name="OrangeHRM.testcases.CreateUserFromAdmin"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

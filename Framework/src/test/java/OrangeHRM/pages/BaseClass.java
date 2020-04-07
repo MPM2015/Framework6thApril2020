@@ -3,7 +3,6 @@ package OrangeHRM.pages;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -16,7 +15,6 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import OrangeHRM.factories.BrowserFactory;
-import OrangeHRM.factories.ConfigProvider;
 import OrangeHRM.factories.ObjectProviderFactory;
 import OrangeHRM.helper.Utility;
 
@@ -25,7 +23,7 @@ public class BaseClass {
 	/*public LoginPage login;
 	public LogoutPage logout;*/
 	public WebDriver driver;
-	public ExtentReports report;
+	public static ExtentReports report;
 	public ExtentTest logger;
 	
 	
@@ -98,10 +96,12 @@ public class BaseClass {
 	@AfterClass
 	public void tearDown() {
 		System.out.println("Log:INFO: Terminating Browser");
-		BrowserFactory.closeApplication(driver);
+		BrowserFactory.closeApplication(driver);		
 		System.out.println("Log:INFO: Browser Terminated");
 		
 	}
+
+	
 	
 
 }

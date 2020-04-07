@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -87,6 +88,37 @@ public class Utility {
 	
 		
 	}
+	
+	public static List<WebElement> waitForMultipleWebElement(WebDriver driver, By byLocator) {
+
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		List<WebElement> allelements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLocator));
+		return allelements;
+		
+		
+	}
+	
+	public static List<WebElement> waitForMultipleWebElement(WebDriver driver, By byLocator,int time) {
+
+		WebDriverWait wait = new WebDriverWait(driver, time);
+		List<WebElement> allelements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLocator));
+		return allelements;
+
+	}
+	
+	public static void selectValueFromCalendar(List<WebElement> elements,String values)
+	{
+		for(WebElement ele:elements) {
+			String data=ele.getText();
+			if(data.equalsIgnoreCase(values)) {
+				ele.click();
+				break;
+			}
+		}
+		
+	}
+	
+	
 	//THis  method will handle sync issue - It will wait for the webelement and highlight the same
 	public static WebElement waitForWebElement(WebDriver driver, By byLocator) {
 
@@ -97,6 +129,7 @@ public class Utility {
 
 	}
 	
+		
 	public static WebElement waitForWebElement(WebDriver driver, By byLocator,int time) {
 
 		WebDriverWait wait = new WebDriverWait(driver, time);
