@@ -8,6 +8,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -79,14 +80,21 @@ public class BaseClass {
 		
 	}
 
+	//Paramaeters will come from jenkins to POM.XML
+	@Parameters({"Browser","AppURL"})	
 	@BeforeClass
-	public void setUp() {
+	public void setUp(String browser,String appURL) {
 		
 		System.out.println("Log:INFO: Setting up Browser and Application");
 		//ConfigProvider config=new ConfigProvider(); --- Created separate class to get the object- ObjectProviderFactory
-		driver = BrowserFactory.getApplication(ObjectProviderFactory.getConfig().getValue("Browser"),
-				ObjectProviderFactory.getConfig().getValue("QAEnv"));		
+		
+		/*driver = BrowserFactory.getApplication(ObjectProviderFactory.getConfig().getValue("Browser"),
+				ObjectProviderFactory.getConfig().getValue("QAEnv"));*/	
+		
+		driver = BrowserFactory.getApplication(browser,appURL);
 		System.out.println("Log:INFO: Browser and Application is ready");
+		
+		
 		/*login = PageFactory.initElements(driver, LoginPage.class);
 		logout = PageFactory.initElements(driver, LogoutPage.class);*/
 		
