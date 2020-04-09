@@ -80,25 +80,42 @@ public class BaseClass {
 		
 	}
 
-	//Paramaeters will come from jenkins to POM.XML
-	@Parameters({"Browser","AppURL"})	
+	//Parameters will come from jenkins to POM.XML
+	/*@Parameters({"Browser","AppURL"})	
 	@BeforeClass
 	public void setUp(String browser,String appURL) {
 		
 		System.out.println("Log:INFO: Setting up Browser and Application");
 		//ConfigProvider config=new ConfigProvider(); --- Created separate class to get the object- ObjectProviderFactory
 		
-		/*driver = BrowserFactory.getApplication(ObjectProviderFactory.getConfig().getValue("Browser"),
-				ObjectProviderFactory.getConfig().getValue("QAEnv"));*/	
+		driver = BrowserFactory.getApplication(ObjectProviderFactory.getConfig().getValue("Browser"),
+				ObjectProviderFactory.getConfig().getValue("QAEnv"));	
 		
 		driver = BrowserFactory.getApplication(browser,appURL);
+		
+		
 		System.out.println("Log:INFO: Browser and Application is ready");
 		
 		
-		/*login = PageFactory.initElements(driver, LoginPage.class);
-		logout = PageFactory.initElements(driver, LogoutPage.class);*/
+		login = PageFactory.initElements(driver, LoginPage.class);
+		logout = PageFactory.initElements(driver, LogoutPage.class);
 		
 
+	}*/
+	
+	@Parameters({"os","os_version","browser","browser_version","applicationURL"})	
+	@BeforeClass
+	public void setUpGrid(String os,String os_version,String browser,String browser_version,String applicationURL) {
+		
+		System.out.println("Log:INFO: Setting up Selenium Grid Details");
+		/*driver=BrowserFactory.startApplicationUsingGrid(ObjectProviderFactory.getConfig().getValue("os"),
+				ObjectProviderFactory.getConfig().getValue("os_version"),ObjectProviderFactory.getConfig().getValue("browser"),
+				ObjectProviderFactory.getConfig().getValue("browser_version"),ObjectProviderFactory.getConfig().getValue("applicationURL"));*/
+				
+		driver=BrowserFactory.startApplicationUsingGrid(os,os_version,browser,browser_version,applicationURL);
+		
+		System.out.println("Log:INFO:Selenium Grid Details are ready");
+		
 	}
 	
 	@AfterClass

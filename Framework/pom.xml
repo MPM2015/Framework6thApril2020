@@ -48,10 +48,19 @@
           <suiteXmlFiles>
             <suiteXmlFile>XMLFiles/${xmlFiles}</suiteXmlFile>
           </suiteXmlFiles>
-          <systemPropertyVariables>
+          
+          <!-- <systemPropertyVariables>
           	<Browser>${Browser}</Browser>
             <AppURL>/${AppURL}</AppURL>
-          </systemPropertyVariables>
+          </systemPropertyVariables> -->
+          
+       		<systemPropertyVariables>
+			     <os>${os}</os>
+			     <os_version>/${os_version}</os_version>
+			     <browser>/${browser}</browser>
+			     <browser_version>/${browser_version}</browser_version>
+			     <applicationURL>/${applicationURL}</applicationURL>
+			</systemPropertyVariables>          
         </configuration>
       </plugin>
 
