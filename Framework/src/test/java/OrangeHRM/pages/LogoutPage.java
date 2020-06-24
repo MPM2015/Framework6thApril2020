@@ -23,5 +23,15 @@ public class LogoutPage {
 		Utility.waitForWebElement(driver, logoutText).click();
 
 	}
+	
+	public void logoutfromApplication1() {
+		Utility.waitForWebElement(driver, adminText).click();
+		Utility.waitForWebElement(driver, logoutText).click();
+
+	}
+	
+	
+	
+	
 
 }

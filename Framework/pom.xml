@@ -22,7 +22,14 @@
 	    <artifactId>poi-ooxml</artifactId>
 	    <version>3.17</version>
    </dependency>
-	
+   
+   <dependency>
+	    <groupId>org.jboss.aerogear</groupId>
+	    <artifactId>aerogear-otp-java</artifactId>
+	    <version>1.0.0</version>
+	    <scope>provided</scope>
+	</dependency>
+   	
   	
   	<dependency>
     	<groupId>org.testng</groupId>
@@ -54,13 +61,13 @@
             <AppURL>/${AppURL}</AppURL>
           </systemPropertyVariables> -->
           
-       		<systemPropertyVariables>
+       		<!-- <systemPropertyVariables>
 			     <os>${os}</os>
 			     <os_version>/${os_version}</os_version>
 			     <browser>/${browser}</browser>
 			     <browser_version>/${browser_version}</browser_version>
 			     <applicationURL>/${applicationURL}</applicationURL>
-			</systemPropertyVariables>          
+			</systemPropertyVariables>     -->      
         </configuration>
       </plugin>
 

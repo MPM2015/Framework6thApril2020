@@ -16,6 +16,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -61,6 +62,20 @@ public class Utility {
 
 	}
 
+	public static void selectDropdown(WebElement element,String values) {
+		//WebDriverWait wait= new WebDriverWait(driver,15);
+		//WebElement element=wait.until(ExpectedConditions.elementToBeClickable(byLocator));
+		Select capturedropdownvalues=new Select(element);
+		List<WebElement> allvalues=capturedropdownvalues.getOptions();
+		for(WebElement ele:allvalues) {
+			String data=ele.getText();
+			if(data.equalsIgnoreCase(values)) {
+				ele.click();
+				break;
+			}
+		}
+		
+	}
 	
 	public static void acceptAlert(WebDriver driver) {
 		WebDriverWait wait= new WebDriverWait(driver,15);

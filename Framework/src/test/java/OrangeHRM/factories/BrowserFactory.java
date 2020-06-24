@@ -7,7 +7,9 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -21,6 +23,7 @@ public class BrowserFactory {
 		driver.quit();
 		System.out.println("LOG-INFO: Session Closed");
 	}
+	
 	
 	public static WebDriver startApplicationUsingGrid(String os,String os_version,String browser,String browser_version,String applicationURL)
 	{
@@ -95,6 +98,26 @@ public class BrowserFactory {
 	public static WebDriver getApplication(String browser,String appURL) {
 		
 	WebDriver driver = null;
+	
+		/*ChromeOptions opt=new ChromeOptions();
+		opt.setHeadless(true);
+		
+		FirefoxOptions optFF=new FirefoxOptions();
+		optFF.setHeadless(true);
+		
+		if(browser.equalsIgnoreCase("Chrome"))
+		{
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/Drivers/chromedriver.exe");
+			driver=new ChromeDriver(opt);
+			
+		}
+		else if(browser.equalsIgnoreCase("firefox"))
+		{
+			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/Drivers/geckodriver.exe");
+			driver =new FirefoxDriver(optFF);
+			
+		}*/
+		
 		
 		if(browser.equalsIgnoreCase("Chrome"))
 		{

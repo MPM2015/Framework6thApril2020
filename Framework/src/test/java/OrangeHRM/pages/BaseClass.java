@@ -3,6 +3,7 @@ package OrangeHRM.pages;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -81,50 +82,55 @@ public class BaseClass {
 	}
 
 	//Parameters will come from jenkins to POM.XML
-	/*@Parameters({"Browser","AppURL"})	
+	//@Parameters({"Browser","AppURL"})	
+	//@BeforeClass
+	//public void setUp(String browser,String appURL) 
 	@BeforeClass
-	public void setUp(String browser,String appURL) {
+	public void setUp(){
 		
 		System.out.println("Log:INFO: Setting up Browser and Application");
 		//ConfigProvider config=new ConfigProvider(); --- Created separate class to get the object- ObjectProviderFactory
 		
-		driver = BrowserFactory.getApplication(ObjectProviderFactory.getConfig().getValue("Browser"),
-				ObjectProviderFactory.getConfig().getValue("QAEnv"));	
+		/*driver = BrowserFactory.getApplication(ObjectProviderFactory.getConfig().getValue("Browser"),
+				ObjectProviderFactory.getConfig().getValue("QAEnv"));*/	
 		
-		driver = BrowserFactory.getApplication(browser,appURL);
+		driver = BrowserFactory.getApplication(ObjectProviderFactory.getConfig().getValue("Browser"),
+				ObjectProviderFactory.getConfig().getValue("AzureURL"));	
+		
+		//driver = BrowserFactory.getApplication(browser,appURL);
 		
 		
 		System.out.println("Log:INFO: Browser and Application is ready");
 		
 		
-		login = PageFactory.initElements(driver, LoginPage.class);
+	/*	login = PageFactory.initElements(driver, LoginPage.class);
 		logout = PageFactory.initElements(driver, LogoutPage.class);
-		
+		*/
 
-	}*/
+	}
 	
-	@Parameters({"os","os_version","browser","browser_version","applicationURL"})	
+	/*@Parameters({"os","os_version","browser","browser_version","applicationURL"})	
 	@BeforeClass
 	public void setUpGrid(String os,String os_version,String browser,String browser_version,String applicationURL) {
 		
 		System.out.println("Log:INFO: Setting up Selenium Grid Details");
-		/*driver=BrowserFactory.startApplicationUsingGrid(ObjectProviderFactory.getConfig().getValue("os"),
+		driver=BrowserFactory.startApplicationUsingGrid(ObjectProviderFactory.getConfig().getValue("os"),
 				ObjectProviderFactory.getConfig().getValue("os_version"),ObjectProviderFactory.getConfig().getValue("browser"),
-				ObjectProviderFactory.getConfig().getValue("browser_version"),ObjectProviderFactory.getConfig().getValue("applicationURL"));*/
+				ObjectProviderFactory.getConfig().getValue("browser_version"),ObjectProviderFactory.getConfig().getValue("applicationURL"));
 				
 		driver=BrowserFactory.startApplicationUsingGrid(os,os_version,browser,browser_version,applicationURL);
 		
 		System.out.println("Log:INFO:Selenium Grid Details are ready");
 		
-	}
+	}*/
 	
-	@AfterClass
+	/*@AfterClass
 	public void tearDown() {
 		System.out.println("Log:INFO: Terminating Browser");
 		BrowserFactory.closeApplication(driver);		
 		System.out.println("Log:INFO: Browser Terminated");
 		
-	}
+	}*/
 
 	
 	
