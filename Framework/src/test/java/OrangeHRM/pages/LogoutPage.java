@@ -30,6 +30,12 @@ public class LogoutPage {
 
 	}
 	
+	public void logoutfromApplication2() {
+		Utility.waitForWebElement(driver, adminText).click();
+		Utility.waitForWebElement(driver, logoutText).click();
+
+	}
+	
 	
 	
 	
