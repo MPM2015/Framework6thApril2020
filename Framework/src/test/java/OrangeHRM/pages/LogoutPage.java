@@ -24,18 +24,11 @@ public class LogoutPage {
 
 	}
 	
-	public void logoutfromApplication1() {
+	public void logoutfromApplicationmahesh() {
 		Utility.waitForWebElement(driver, adminText).click();
 		Utility.waitForWebElement(driver, logoutText).click();
 
 	}
-	
-	public void logoutfromApplication2() {
-		Utility.waitForWebElement(driver, adminText).click();
-		Utility.waitForWebElement(driver, logoutText).click();
-
-	}
-	
 	
 	
 	
